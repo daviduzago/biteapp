@@ -1,6 +1,12 @@
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, Text, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableWithoutFeedback,
+} from "react-native";
 import MenuBody from "../components/buttons/menu-body";
 import colors from "../config/colors";
 import MenuFooter from "../components/buttons/menu-footer";
@@ -74,13 +80,22 @@ export default function Menu() {
             color1={colors.beigeClaro}
             color2={colors.beigeOscuro}
           />
-          <MenuFooter
-            title={"Politica de Privacidad"}
-            icon={require("../assets/icons/help.png")}
-            color1={colors.azulOscuro2}
-            color2={colors.azulOscuro2}
-            otroEstiloTexto={{ color: colors.white }}
-          />
+          <TouchableWithoutFeedback>
+            <LinearGradient
+              style={styles.footer__twoButtons__button}
+              colors={[colors.azulOscuro2, colors.azulOscuro2]}
+            >
+              <Text
+                numberOfLines={1}
+                style={{ fontSize: 10, fontWeight: "500", color: colors.white }}
+              >
+                Politica de privacidad
+              </Text>
+            </LinearGradient>
+          </TouchableWithoutFeedback>
+          <Text style={{ fontSize: 10, color: "gray", marginLeft: 5 }}>
+            BiteApp v1.0
+          </Text>
         </View>
         {/* Camara */}
         <LinearGradient
@@ -172,13 +187,16 @@ const styles = StyleSheet.create({
     width: 120,
     height: 90,
     justifyContent: "space-evenly",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   footer__twoButtons__button: {
     width: 115,
-    height: 35,
+    height: 30,
     backgroundColor: colors.rojoClaro,
     borderRadius: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   footer__camara: {
     width: 100,

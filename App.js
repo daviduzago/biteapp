@@ -1,6 +1,7 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import Menu from "./screens/menu";
+import Advertencias from "./screens/advertencias";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -9,9 +10,14 @@ const StackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="Advertencias"
+        component={Advertencias}
+        options={{ headerShown: false }}
+      ></Stack.Screen>
+      <Stack.Screen
         name="Menu"
         component={Menu}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, gestureEnabled: false }}
       ></Stack.Screen>
     </Stack.Navigator>
   );

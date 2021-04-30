@@ -1,21 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { SafeAreaView, StyleSheet, View } from "react-native";
+import Menu from "./screens/menu";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+const Stack = createStackNavigator();
+const StackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Menu"
+        component={Menu}
+        options={{ headerShown: false }}
+      ></Stack.Screen>
+    </Stack.Navigator>
+  );
+};
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === "android" ? 25 : 0,
   },
 });

@@ -2,6 +2,7 @@ import React from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import Menu from "./screens/menu";
 import Advertencias from "./screens/advertencias";
+import Categorias from "./screens/categorias/categorias-menu";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -19,6 +20,7 @@ const StackNavigator = () => {
         component={Menu}
         options={{ headerShown: false, gestureEnabled: false }}
       ></Stack.Screen>
+      <Stack.Screen name="Categorias" component={Categorias}></Stack.Screen>
     </Stack.Navigator>
   );
 };

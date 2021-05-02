@@ -7,11 +7,13 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import MenuBody from "../components/buttons/menu-body";
-import colors from "../config/colors";
 import MenuFooter from "../components/buttons/menu-footer";
+import colors from "../config/colors";
 
 export default function Menu() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -35,6 +37,9 @@ export default function Menu() {
             icon={require("../assets/icons/books.png")}
             color1={colors.verdeOscuro}
             color2={colors.verdeClaro}
+            onpress={() => {
+              navigation.navigate("Categorias");
+            }}
           />
           <MenuBody
             title={"Guias"}

@@ -38,10 +38,7 @@ function FlatlistCategoria({
         </View>
         <View style={styles.textbox}>
           <Text style={styles.textbox__title}>{title}</Text>
-          <Text style={styles.textbox__description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Text>
+          <Text style={styles.textbox__description}>{description}</Text>
         </View>
         <View style={styles.arrowbox}>
           <SimpleLineIcons name="arrow-right" size={24} color="gray" />

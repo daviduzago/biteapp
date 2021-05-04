@@ -11,6 +11,7 @@ export default {
   //degradado amarillo
   amarilloOscuro: "#FABE2C",
   amarilloClaro: "#FFF500",
+  amarilloClaro2: "#FED843",
   //degradado naranja
   naranjaOscuro: "#F8961E",
   naranjaClaro: "#F9C74F",

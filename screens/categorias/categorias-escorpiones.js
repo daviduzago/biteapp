@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
-import FlatlistCategoria from "../../components/flatlist/flatlist-categoria";
+import FlatlistCategoria from "../../components/categorias/flatlist-categoria";
 import colors from "../../config/colors";
 
 function CategoriasEscorpiones() {

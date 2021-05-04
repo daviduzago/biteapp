@@ -187,6 +187,7 @@ const styles = StyleSheet.create({
     paddingLeft: 35,
     justifyContent: "space-between",
     alignItems: "center",
+    backgroundColor: "transparent",
   },
   footer__twoButtons: {
     width: 120,
@@ -206,7 +207,6 @@ const styles = StyleSheet.create({
   footer__camara: {
     width: 100,
     height: 100,
-    backgroundColor: colors.azulOscuro2,
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",

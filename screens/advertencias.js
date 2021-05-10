@@ -7,11 +7,10 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import colors from "../config/colors";
+import defaultStyles from "../config/styles";
 
-function Advertencias() {
-  const navigation = useNavigation();
+function Advertencias({ navigation }) {
   return (
     <LinearGradient
       style={styles.container}
@@ -29,8 +28,10 @@ function Advertencias() {
 
       {/* Mensaje */}
       <View style={styles.mensaje__body}>
-        <Text style={styles.mensaje__body__title}>Advertencias</Text>
-        <Text style={styles.mensaje__body__text}>
+        <Text style={[defaultStyles.text, styles.mensaje__body__title]}>
+          Advertencias
+        </Text>
+        <Text style={[defaultStyles.text, styles.mensaje__body__text]}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut

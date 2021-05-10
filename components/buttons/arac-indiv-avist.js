@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import colors from "../../config/colors";
+import defaultStyles from "../../config/styles";
 
 function AracIndivAvist() {
   return (
@@ -17,7 +18,9 @@ function AracIndivAvist() {
         end={{ x: 0, y: 0 }}
         style={styles.container}
       >
-        <Text style={styles.label}>¿Has visto {"\n"} este aracnido?</Text>
+        <Text style={[defaultStyles.text, styles.label]}>
+          ¿Has visto {"\n"} este aracnido?
+        </Text>
       </LinearGradient>
     </TouchableWithoutFeedback>
   );

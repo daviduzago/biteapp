@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import colors from "../../config/colors";
+import defaultStyles from "../../config/styles";
 
 function AracIndivAnterior({ onPress }) {
   return (
@@ -21,7 +22,7 @@ function AracIndivAnterior({ onPress }) {
           source={require("../../assets/icons/right-arrow.png")}
           style={styles.icon}
         />
-        <Text style={styles.label}>Anterior</Text>
+        <Text style={[defaultStyles.text, styles.label]}>Anterior</Text>
       </LinearGradient>
     </TouchableWithoutFeedback>
   );

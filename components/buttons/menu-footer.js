@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import colors from "../../config/colors";
+import defaultStyles from "../../config/styles";
 
 function MenuFooter({
   color1 = colors.gray,
@@ -21,7 +22,10 @@ function MenuFooter({
     <TouchableWithoutFeedback onPress={onpress}>
       <LinearGradient style={styles.container} colors={[color1, color2]}>
         <Image style={{ width: 28, height: 28 }} source={icon}></Image>
-        <Text numberOfLines={2} style={[styles.title, otroEstiloTexto]}>
+        <Text
+          numberOfLines={2}
+          style={[defaultStyles.text, styles.title, otroEstiloTexto]}
+        >
           {title}
         </Text>
       </LinearGradient>

@@ -7,6 +7,7 @@ import BackButton from "../../components/buttons/arac-indiv-anterior";
 import AvistButton from "../../components/buttons/arac-indiv-avist";
 import PicadaButton from "../../components/buttons/arac-indiv-picada";
 import colors from "../../config/colors";
+import defaultStyles from "../../config/styles";
 
 function AracnidoIndividual() {
   return (
@@ -15,29 +16,35 @@ function AracnidoIndividual() {
         <View style={{ width: "100%", height: 200, marginBottom: 10 }}>
           <ImageCarousel data={DATA[0].images} />
         </View>
-        <Text style={styles.title}>{DATA[0].title}</Text>
+        <Text style={[defaultStyles.text, styles.title]}>{DATA[0].title}</Text>
         <View style={styles.factBox}>
           <View style={styles.factBox__textBox}>
-            <Text style={styles.factBox__textBox_title}>Info:</Text>
-            <Text style={styles.factBox__textBox_message}>
+            <Text style={[defaultStyles.text, styles.factBox__textBox_title]}>
+              Info:
+            </Text>
+            <Text style={[defaultStyles.text, styles.factBox__textBox_message]}>
               Sed ut perspiciatis unde omnis iste.
             </Text>
           </View>
           <View style={styles.factBox__textBox}>
-            <Text style={styles.factBox__textBox_title}>Info:</Text>
-            <Text style={styles.factBox__textBox_message}>
+            <Text style={[defaultStyles.text, styles.factBox__textBox_title]}>
+              Info:
+            </Text>
+            <Text style={[defaultStyles.text, styles.factBox__textBox_message]}>
               Sed ut perspiciatis unde omnis iste.
             </Text>
           </View>
           <View style={styles.factBox__textBox}>
-            <Text style={styles.factBox__textBox_title}>Info:</Text>
-            <Text style={styles.factBox__textBox_message}>
+            <Text style={[defaultStyles.text, styles.factBox__textBox_title]}>
+              Info:
+            </Text>
+            <Text style={[defaultStyles.text, styles.factBox__textBox_message]}>
               Sed ut perspiciatis unde omnis iste.
             </Text>
           </View>
         </View>
         <View style={styles.info}>
-          <Text style={styles.info__text}>
+          <Text style={[defaultStyles.text, styles.info__text]}>
             At vero eos et accusamus et iusto odio dignissimos ducimus qui
             blanditiis praesentium voluptatum deleniti atque corrupti quos
             dolores et quas molestias excepturi sint occaecati cupiditate non
@@ -113,16 +120,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
   },
-  backBox: { flex: 1 / 2, width: "100%" },
+  backBox: {
+    flex: 1 / 2,
+    width: "100%",
+    paddingLeft: 15,
+  },
   nextBox: {
     flex: 1 / 2,
     width: "100%",
     alignItems: "flex-end",
+    paddingRight: 15,
   },
   reportBox: {
     width: "100%",
     height: 50,
-    marginTop: 5,
+    marginTop: 10,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",

@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import colors from "../../config/colors";
+import defaultStyles from "../../config/styles";
 
 function FlatlistCategoria({
   image,
@@ -28,17 +29,25 @@ function FlatlistCategoria({
             />
           )}
           {peligroso && (
-            <Text style={styles.imagebox__messageRojo}>Especie peligrosa</Text>
+            <Text style={[defaultStyles.text, styles.imagebox__messageRojo]}>
+              Especie peligrosa
+            </Text>
           )}
           {!peligroso && (
-            <Text style={styles.imagebox__messageAmarillo}>
+            <Text
+              style={[defaultStyles.text, styles.imagebox__messageAmarillo]}
+            >
               Especie no peligrosa
             </Text>
           )}
         </View>
         <View style={styles.textbox}>
-          <Text style={styles.textbox__title}>{title}</Text>
-          <Text style={styles.textbox__description}>{description}</Text>
+          <Text style={[defaultStyles.text, styles.textbox__title]}>
+            {title}
+          </Text>
+          <Text style={[defaultStyles.text, styles.textbox__description]}>
+            {description}
+          </Text>
         </View>
         <View style={styles.arrowbox}>
           <SimpleLineIcons name="arrow-right" size={24} color="gray" />

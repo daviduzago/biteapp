@@ -7,6 +7,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import colors from "../../config/colors";
+import defaultStyles from "../../config/styles";
 
 function MenuBody({
   color1 = colors.gray,
@@ -19,7 +20,7 @@ function MenuBody({
     <TouchableWithoutFeedback onPress={onpress}>
       <LinearGradient style={styles.container} colors={[color1, color2]}>
         <Image style={{ width: 90, height: 90 }} source={icon}></Image>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={[defaultStyles.text, styles.title]}>{title}</Text>
       </LinearGradient>
     </TouchableWithoutFeedback>
   );

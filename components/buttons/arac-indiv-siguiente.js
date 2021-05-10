@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import colors from "../../config/colors";
+import defaultStyles from "../../config/styles";
 
 function AracIndivSiguiente({ onPress }) {
   return (
@@ -17,7 +18,7 @@ function AracIndivSiguiente({ onPress }) {
         end={{ x: 0, y: 0 }}
         style={styles.container}
       >
-        <Text style={styles.label}>Siguiente</Text>
+        <Text style={[defaultStyles.text, styles.label]}>Siguiente</Text>
         <Image
           source={require("../../assets/icons/right-arrow.png")}
           style={styles.icon}

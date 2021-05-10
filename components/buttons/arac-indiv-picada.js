@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import colors from "../../config/colors";
+import defaultStyles from "../../config/styles";
 
 function AracIndivPicada() {
   return (
@@ -17,7 +18,9 @@ function AracIndivPicada() {
         end={{ x: 0, y: 0 }}
         style={styles.container}
       >
-        <Text style={styles.label}>¿Te pico{"\n"} este aracnido?</Text>
+        <Text style={[defaultStyles.text, styles.label]}>
+          ¿Te pico{"\n"} este aracnido?
+        </Text>
       </LinearGradient>
     </TouchableWithoutFeedback>
   );
@@ -33,7 +36,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 10,
-    marginHorizontal: 5,
+    marginHorizontal: 10,
   },
   label: {
     fontSize: 16,

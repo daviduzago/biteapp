@@ -1,11 +1,10 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import FlatlistCategoria from "../../components/categorias/flatlist-categoria";
 import colors from "../../config/colors";
+import FlatlistCategoria from "../../components/categorias/flatlist-categoria";
+import routes from "../../navigation/routes";
 
-function CategoriasAraña() {
-  const navigation = useNavigation();
+function CategoriasAraña({ navigation }) {
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -17,7 +16,7 @@ function CategoriasAraña() {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua."
           }
           onPress={() => {
-            navigation.navigate("Aracnido");
+            navigation.navigate(routes.CATEGORIA_ARACNIDO);
           }}
         />
         <FlatlistCategoria

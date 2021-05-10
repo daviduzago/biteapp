@@ -7,13 +7,13 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import colors from "../config/colors";
+import defaultStyles from "../config/styles";
 import MenuBody from "../components/buttons/menu-body";
 import MenuFooter from "../components/buttons/menu-footer";
-import colors from "../config/colors";
+import routes from "../navigation/routes";
 
-export default function Menu() {
-  const navigation = useNavigation();
+export default function Menu({ navigation }) {
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -38,7 +38,7 @@ export default function Menu() {
             color1={colors.verdeOscuro}
             color2={colors.verdeClaro}
             onpress={() => {
-              navigation.navigate("Categorias");
+              navigation.navigate(routes.CATEGORIAS);
             }}
           />
           <MenuBody
@@ -73,7 +73,9 @@ export default function Menu() {
             style={styles.emergency__boton__icon}
             source={require("../assets/icons/emergency-call.png")}
           ></Image>
-          <Text style={styles.emergency__boton__title}>Emergencias</Text>
+          <Text style={[defaultStyles.text, styles.emergency__boton__title]}>
+            Emergencias
+          </Text>
         </LinearGradient>
       </View>
       {/* Footer */}
@@ -92,13 +94,21 @@ export default function Menu() {
             >
               <Text
                 numberOfLines={1}
-                style={{ fontSize: 10, fontWeight: "500", color: colors.white }}
+                style={[
+                  defaultStyles.text,
+                  { fontSize: 10, fontWeight: "500", color: colors.white },
+                ]}
               >
                 Politica de privacidad
               </Text>
             </LinearGradient>
           </TouchableWithoutFeedback>
-          <Text style={{ fontSize: 10, color: "gray", marginLeft: 5 }}>
+          <Text
+            style={[
+              defaultStyles.text,
+              { fontSize: 10, color: "gray", marginLeft: 5 },
+            ]}
+          >
             BiteApp v1.0
           </Text>
         </View>

@@ -6,11 +6,13 @@ import Categorias from "./screens/categorias/categorias-menu";
 import Aracnido from "./screens/categorias/aracnido-individual";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import navigationTheme from "./navigation/navigation-theme";
+import colors from "./config/colors";
 
 const Stack = createStackNavigator();
 const StackNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerTintColor: colors.verdeOscuro }}>
       <Stack.Screen
         name="Advertencias"
         component={Advertencias}
@@ -30,7 +32,7 @@ const StackNavigator = () => {
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <NavigationContainer>
+      <NavigationContainer theme={navigationTheme}>
         <StackNavigator />
       </NavigationContainer>
     </SafeAreaView>

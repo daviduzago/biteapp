@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, Platform, SafeAreaView } from "react-native";
 import Arañas from "../categorias/categorias-arañas";
 import Escorpiones from "../categorias/categorias-escorpiones";
 import colors from "../../config/colors";
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, paddingTop: Platform.OS === "android" ? 25 : 0 },
   tabText: {
     fontSize: 20,
+    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },
   tab: {
     justifyContent: "center",

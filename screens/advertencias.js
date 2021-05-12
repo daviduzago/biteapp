@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import colors from "../config/colors";
 import defaultStyles from "../config/styles";
+import routes from "../navigation/routes";
 
 function Advertencias({ navigation }) {
   return (
@@ -44,7 +45,7 @@ function Advertencias({ navigation }) {
       <View style={styles.boton__box}>
         <TouchableWithoutFeedback
           onPress={() => {
-            navigation.navigate("Menu");
+            navigation.navigate(routes.MENU_PRINCIPAL);
           }}
         >
           <Image

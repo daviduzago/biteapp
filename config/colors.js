@@ -2,6 +2,7 @@ export default {
   //degradado verde
   verdeOscuro: "#59C36A",
   verdeClaro: "#97DE3D",
+  verdeSuperClaro: "#F1FFE0",
   //degradado azul
   azulOscuro: "#0466C8",
   azulClaro: "#CAF0F8",

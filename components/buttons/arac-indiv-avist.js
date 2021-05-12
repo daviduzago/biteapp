@@ -9,9 +9,9 @@ import { LinearGradient } from "expo-linear-gradient";
 import colors from "../../config/colors";
 import defaultStyles from "../../config/styles";
 
-function AracIndivAvist() {
+function AracIndivAvist({ onPress }) {
   return (
-    <TouchableWithoutFeedback>
+    <TouchableWithoutFeedback onPress={onPress}>
       <LinearGradient
         colors={[colors.rojoOscuro, colors.rojoClaro]}
         start={{ x: 1, y: 0 }}

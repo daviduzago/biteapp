@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import DATA from "../../assets/json/aracnidos";
+import { useNavigation } from "@react-navigation/native";
 import ImageCarousel from "../../components/categorias/image-carousel";
 import NextButton from "../../components/buttons/arac-indiv-siguiente";
 import BackButton from "../../components/buttons/arac-indiv-anterior";
@@ -8,8 +9,10 @@ import AvistButton from "../../components/buttons/arac-indiv-avist";
 import PicadaButton from "../../components/buttons/arac-indiv-picada";
 import colors from "../../config/colors";
 import defaultStyles from "../../config/styles";
+import routes from "../../navigation/routes";
 
 function AracnidoIndividual() {
+  const navigation = useNavigation();
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -73,7 +76,9 @@ function AracnidoIndividual() {
         </View>
         <View style={styles.reportBox}>
           <PicadaButton />
-          <AvistButton />
+          <AvistButton
+            onPress={() => navigation.navigate(routes.AVIST_CATEGORIA)}
+          />
         </View>
       </View>
     </ScrollView>

@@ -10,7 +10,12 @@ import Menu from "../screens/menu";
 const Stack = createStackNavigator();
 
 const AppNavigator = () => (
-  <Stack.Navigator screenOptions={{ headerTintColor: colors.verdeOscuro }}>
+  <Stack.Navigator
+    screenOptions={{
+      headerTintColor: colors.verdeOscuro,
+      headerTitleAlign: "center",
+    }}
+  >
     <Stack.Screen
       name="Advertencias"
       component={Advertencias}

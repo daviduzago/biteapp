@@ -7,14 +7,16 @@ import {
   Keyboard,
   StyleSheet,
   Button,
+  Platform,
 } from "react-native";
 import AppTextInput from "../../components/textInput";
 import colors from "../../config/colors";
 import defaultStyles from "../../config/styles";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import DatePicker from "../../components/datePicker";
 
 function AvistCategoria() {
-  const [date, setDate] = useState(new Date(1598051730000));
+  const [date, setDate] = useState(new Date(Date.now()));
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
@@ -23,6 +25,7 @@ function AvistCategoria() {
     setShow(Platform.OS === "ios");
     setDate(currentDate);
   };
+
   const showMode = (currentMode) => {
     setShow(true);
     setMode(currentMode);
@@ -55,10 +58,35 @@ function AvistCategoria() {
             Datos Generales
           </Text>
           <View style={styles.generalBox__1}>
-            <Text style={[defaultStyles.text, styles.generalBox__subTitle]}>
-              Fecha que vio el aracnido:
-            </Text>
-            <AppTextInput width={"90%"} icon={"calendar"} />
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <Text style={[defaultStyles.text, styles.generalBox__subTitle]}>
+                Fecha que vio el aracnido:
+              </Text>
+              <DatePicker></DatePicker>
+              {/* <Text>
+                {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}
+              </Text>
+              <Button onPress={showDatepicker} title={"Cambiar"}></Button>
+              {Platform.OS == "android" && show && (
+                <View style={styles.calendar}>
+                  <DateTimePicker
+                    testID="dateTimePicker"
+                    value={date}
+                    mode={mode}
+                    is24Hour={true}
+                    display={"calendar"}
+                    onChange={onChange}
+                  />
+                </View>
+              )} */}
+            </View>
+
             <Text style={[defaultStyles.text, styles.generalBox__subTitle]}>
               Nombre Completo:
             </Text>
@@ -69,17 +97,6 @@ function AvistCategoria() {
             <AppTextInput width={"90%"} icon={"alphabetical"} />
           </View>
         </View>
-        <Button title={"Calendario"} onPress={showDatepicker}></Button>
-        {show && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={date}
-            mode={mode}
-            is24Hour={true}
-            display="date"
-            onChange={onChange}
-          />
-        )}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -93,6 +110,10 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     padding: 5,
+  },
+  calendar: {
+    width: "100%",
+    marginLeft: 10,
   },
   header: {
     width: "75%",
@@ -133,12 +154,13 @@ const styles = StyleSheet.create({
     color: colors.black,
     fontWeight: "500",
     marginLeft: 10,
+    marginRight: 5,
   },
   generalBox__1: {
     width: "100%",
     borderRadius: 10,
     backgroundColor: colors.verdeSuperClaro,
-    padding: 5,
+    padding: 10,
   },
   generalBox__2: {},
   generalBox__3: {},

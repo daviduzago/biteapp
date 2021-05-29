@@ -3,18 +3,17 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import colors from "../../config/colors";
 import FlatlistCategoria from "../../components/categorias/flatlist-categoria";
 import routes from "../../navigation/routes";
+import DATA from "../../assets/json/aracnidos";
 
 function CategoriasAraña({ navigation }) {
   return (
     <ScrollView>
       <View style={styles.container}>
         <FlatlistCategoria
-          peligroso={false}
-          title={"Super Araña"}
+          peligroso={DATA[0].peligroso}
+          title={DATA[0].title}
           image={require("../../assets/categorias/arañas/golden-spider.jpg")}
-          description={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua."
-          }
+          description={DATA[0].peqDescri}
           onPress={() => {
             navigation.navigate(routes.CATEGORIA_ARACNIDO);
           }}

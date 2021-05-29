@@ -102,6 +102,7 @@ function DatePicker() {
                 is24Hour={true}
                 display={"spinner"}
                 onChange={onChange}
+                textColor={"black"}
               />
             </View>
           )}
@@ -122,6 +123,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: colors.lightGray,
     paddingLeft: 5,
+    borderWidth: 1,
+    borderColor: colors.lightGray,
   },
   box__number: {
     width: 23,
@@ -150,6 +153,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
     backgroundColor: colors.light,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
   },
   dia: {
     flex: 0.8 / 4,

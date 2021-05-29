@@ -1,7 +1,7 @@
 export default DATA = [
   {
     id: 1,
-    title: "Aracnido 1",
+    title: "Super Araña",
     images: [
       { id: 1, uri: require("../categorias/arañas/black.jpg") },
       { id: 2, uri: require("../categorias/arañas/beige.jpg") },
@@ -12,6 +12,8 @@ export default DATA = [
     fact2: "fact 2",
     fact3: "fact 3",
     description: "description",
+    peqDescri: "peq dESCRIP",
+    peligroso: true,
   },
   {
     id: 2,

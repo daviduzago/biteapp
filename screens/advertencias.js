@@ -10,6 +10,7 @@ import {
 import colors from "../config/colors";
 import defaultStyles from "../config/styles";
 import routes from "../navigation/routes";
+import { normalize } from "../hooks/fontSize";
 
 function Advertencias({ navigation }) {
   return (
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 5,
   },
-  mensaje__body__title: { fontSize: 30, marginBottom: 10 },
-  mensaje__body__text: { fontSize: 15, textAlign: "center" },
+  mensaje__body__title: { fontSize: normalize(30), marginBottom: 10 },
+  mensaje__body__text: { fontSize: normalize(15), textAlign: "center" },
   boton__box: { flex: 0.9 / 3 },
 });

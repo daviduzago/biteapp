@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import DATA from "../../assets/json/aracnidos";
 import { useNavigation } from "@react-navigation/native";
@@ -13,20 +13,23 @@ import routes from "../../navigation/routes";
 
 function AracnidoIndividual() {
   const navigation = useNavigation();
+  const [index, setIndex] = useState(0);
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={{ width: "100%", height: 200, marginBottom: 10 }}>
-          <ImageCarousel data={DATA[0].images} />
+          <ImageCarousel data={DATA[index].images} />
         </View>
-        <Text style={[defaultStyles.text, styles.title]}>{DATA[0].title}</Text>
+        <Text style={[defaultStyles.text, styles.title]}>
+          {DATA[index].title}
+        </Text>
         <View style={styles.factBox}>
           <View style={styles.factBox__textBox}>
             <Text style={[defaultStyles.text, styles.factBox__textBox_title]}>
               Info:
             </Text>
             <Text style={[defaultStyles.text, styles.factBox__textBox_message]}>
-              Sed ut perspiciatis unde omnis iste.
+              {DATA[index].fact1}
             </Text>
           </View>
           <View style={styles.factBox__textBox}>
@@ -34,7 +37,7 @@ function AracnidoIndividual() {
               Info:
             </Text>
             <Text style={[defaultStyles.text, styles.factBox__textBox_message]}>
-              Sed ut perspiciatis unde omnis iste.
+              {DATA[index].fact2}
             </Text>
           </View>
           <View style={styles.factBox__textBox}>
@@ -42,23 +45,17 @@ function AracnidoIndividual() {
               Info:
             </Text>
             <Text style={[defaultStyles.text, styles.factBox__textBox_message]}>
-              Sed ut perspiciatis unde omnis iste.
+              {DATA[index].fact3}
             </Text>
           </View>
         </View>
         <View style={styles.info}>
           <Text style={[defaultStyles.text, styles.info__text]}>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias excepturi sint occaecati cupiditate non
-            provident, similique sunt in culpa qui officia deserunt mollitia
-            animi, id est laborum et dolorum fuga.
+            {DATA[index].description}
           </Text>
         </View>
         <View style={styles.navigationBox}>
-          <View style={styles.backBox}>
-            <BackButton />
-          </View>
+          <View style={styles.backBox}>{index == 0 && <BackButton />}</View>
           <View style={styles.nextBox}>
             <NextButton />
           </View>

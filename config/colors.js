@@ -9,6 +9,7 @@ export default {
   //degradado rojo
   rojoOscuro: "#BD0000",
   rojoClaro: "#F94144",
+  rojoClaro2: "#FFDFDF",
   //degradado amarillo
   amarilloOscuro: "#FABE2C",
   amarilloClaro: "#FFF500",

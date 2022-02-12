@@ -17,7 +17,7 @@ function DatePicker() {
   const [show, setShow] = useState(false);
   const [modalCalendar, setModalCalendar] = useState(false);
 
-  const onChange = (event, selectedDate) => {
+  const onChange = (selectedDate) => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === "ios");
     setDate(currentDate);
@@ -34,7 +34,7 @@ function DatePicker() {
   };
   return (
     <TouchableWithoutFeedback>
-      <View style={styles.container}>
+      <View style={styles.container_datePicker}>
         <View style={styles.dia}>
           <AppText style={styles.box__title}>Día</AppText>
           <View style={styles.box__number}>
@@ -116,7 +116,7 @@ export default DatePicker;
 
 const styles = StyleSheet.create({
   box__title: { fontSize: 10, fontWeight: "500" },
-  container: {
+  container_datePicker: {
     width: 160,
     height: 40,
     flexDirection: "row",

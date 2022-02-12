@@ -15,10 +15,14 @@ function MenuBody({
   icon,
   title = "Titulo",
   onpress,
+  extraStyle,
 }) {
   return (
     <TouchableWithoutFeedback onPress={onpress}>
-      <LinearGradient style={styles.container} colors={[color1, color2]}>
+      <LinearGradient
+        style={[styles.container, extraStyle]}
+        colors={[color1, color2]}
+      >
         <Image style={{ width: 90, height: 90 }} source={icon}></Image>
         <Text style={[defaultStyles.text, styles.title]}>{title}</Text>
       </LinearGradient>

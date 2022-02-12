@@ -8,11 +8,12 @@ export default DATA = [
       { id: 3, uri: require("../categorias/arañas/brown.jpg") },
       { id: 4, uri: require("../categorias/arañas/golden-spider.jpg") },
     ],
-    fact1: "fact 1",
-    fact2: "fact 2",
-    fact3: "fact 3",
-    description: "description",
-    peqDescri: "peq dESCRIP",
+    fact1: "Sed ut perspiciatis unde omnis iste.",
+    fact2: "Sed ut perspiciatis unde omnis iste.",
+    fact3: "Sed ut perspiciatis unde omnis iste.",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    peqDescri: "Esta es una pequeña descripcion.",
     peligroso: true,
   },
   {

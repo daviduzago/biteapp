@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import {
   StyleSheet,
@@ -6,14 +6,19 @@ import {
   View,
   Image,
   TouchableWithoutFeedback,
+  Linking,
+  Modal,
 } from "react-native";
 import colors from "../config/colors";
 import defaultStyles from "../config/styles";
 import MenuBody from "../components/buttons/menu-body";
 import MenuFooter from "../components/buttons/menu-footer";
 import routes from "../navigation/routes";
+import ModalEmergencia from "./modalEmergencia";
+import { normalize } from "../hooks/fontSize";
 
 export default function Menu({ navigation }) {
+  const [modalEmergencias, setModalEmergencias] = useState(false);
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -28,10 +33,10 @@ export default function Menu({ navigation }) {
         style={styles.greenLine}
         start={{ x: 1, y: 0 }}
         end={{ x: 0, y: 0 }}
-      ></LinearGradient>
+      />
       {/* Body */}
       <View style={styles.body}>
-        <View style={styles.body__row}>
+        <View style={[styles.body__row, { marginBottom: 20 }]}>
           <MenuBody
             title={"Categorias"}
             icon={require("../assets/icons/books.png")}
@@ -40,12 +45,16 @@ export default function Menu({ navigation }) {
             onpress={() => {
               navigation.navigate(routes.CATEGORIAS);
             }}
+            extraStyle={{ marginRight: 20 }}
           />
           <MenuBody
             title={"Guias"}
             icon={require("../assets/icons/guide.png")}
             color1={colors.naranjaOscuro}
             color2={colors.naranjaClaro}
+            onpress={() => {
+              navigation.navigate(routes.GUIAS);
+            }}
           />
         </View>
         <View style={styles.body__row}>
@@ -54,6 +63,10 @@ export default function Menu({ navigation }) {
             icon={require("../assets/icons/quiz.png")}
             color1={colors.amarilloOscuro}
             color2={colors.amarilloClaro}
+            onpress={() => {
+              navigation.navigate(routes.QUIZZES);
+            }}
+            extraStyle={{ marginRight: 20 }}
           />
           <MenuBody
             title={"Sabias que..."}
@@ -64,20 +77,22 @@ export default function Menu({ navigation }) {
         </View>
       </View>
       {/* Emergencias */}
-      <View style={styles.emergency}>
-        <LinearGradient
-          style={styles.emergency__boton}
-          colors={[colors.rojoClaro, colors.rojoOscuro]}
-        >
-          <Image
-            style={styles.emergency__boton__icon}
-            source={require("../assets/icons/emergency-call.png")}
-          ></Image>
-          <Text style={[defaultStyles.text, styles.emergency__boton__title]}>
-            Emergencias
-          </Text>
-        </LinearGradient>
-      </View>
+      <TouchableWithoutFeedback onPress={() => setModalEmergencias(true)}>
+        <View style={styles.emergency}>
+          <LinearGradient
+            style={styles.emergency__boton}
+            colors={[colors.rojoClaro, colors.rojoOscuro]}
+          >
+            <Image
+              style={styles.emergency__boton__icon}
+              source={require("../assets/icons/emergency-call.png")}
+            ></Image>
+            <Text style={[defaultStyles.text, styles.emergency__boton__title]}>
+              Emergencias
+            </Text>
+          </LinearGradient>
+        </View>
+      </TouchableWithoutFeedback>
       {/* Footer */}
       <View style={styles.footer}>
         <View style={styles.footer__twoButtons}>
@@ -86,8 +101,17 @@ export default function Menu({ navigation }) {
             icon={require("../assets/icons/team.png")}
             color1={colors.beigeClaro}
             color2={colors.beigeOscuro}
+            onpress={() => {
+              navigation.navigate(routes.ACERCADE);
+            }}
           />
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              Linking.openURL(
+                "https://federaciondecafeteros.org/static/files/Politicadedatos.pdf"
+              );
+            }}
+          >
             <LinearGradient
               style={styles.footer__twoButtons__button}
               colors={[colors.azulOscuro2, colors.azulOscuro2]}
@@ -122,6 +146,18 @@ export default function Menu({ navigation }) {
             source={require("../assets/icons/camera.png")}
           />
         </LinearGradient>
+        {/* Modal */}
+        <Modal
+          animationType={"slide"}
+          visible={modalEmergencias}
+          transparent={true}
+        >
+          <ModalEmergencia
+            onPress={() => {
+              setModalEmergencias(false);
+            }}
+          />
+        </Modal>
       </View>
     </View>
   );
@@ -151,12 +187,13 @@ const styles = StyleSheet.create({
   body: {
     flex: 2.3 / 4,
     width: "100%",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
+    alignContent: "center",
   },
   body__row: {
     flexDirection: "row",
-    justifyContent: "space-around",
     paddingHorizontal: 18,
+    justifyContent: "center",
   },
   body__boton: {
     width: 140,
@@ -176,7 +213,7 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: colors.rojoClaro,
     borderRadius: 10,
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     paddingHorizontal: 25,
     alignItems: "center",
   },
@@ -185,7 +222,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
   emergency__boton__title: {
-    fontSize: 35,
+    fontSize: normalize(30),
     fontWeight: "500",
     color: colors.white,
   },
